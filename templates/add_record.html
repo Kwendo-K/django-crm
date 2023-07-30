@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-4 offset-md-4 pb-0">
+            <h5>Add Record</h5>
+            <form method="POST", action="{% url 'add_record' %}">
+                <div class="form-group pb-2"></div>
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+
+                    <button type="submit" class="btn btn-primary">Add Record</button>
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back</a>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}
